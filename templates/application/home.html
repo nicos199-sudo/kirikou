@@ -1,0 +1,188 @@
+{% extends 'base.html' %}
+
+
+
+    {% block content %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="https://kit.fontawesome.com/yourcode.js"></script>
+      <title></title>
+      <style>
+        .button-hover {
+          box-shadow: 2px 4px 11px grey;
+          position: relative;
+          min-width: 30px;
+          margin: 1em;
+          background: #0080008f;
+          padding: 3.3em;
+          border: 0px;
+          border-radius: 42px;
+        }
+      .button-hover::before,
+      .button-hover::after{
+
+         content: "";
+         position:absolute;
+         left: 0;
+         right: 0;
+         bottom: 0;
+         background: #0080008f;
+         border-radius: 51px;
+         transition: all .5s ease-in-out;
+      }
+      .button-hover:hover::before{
+
+        filter: blur(5px);
+      }
+      .button-hover:hover::after{
+
+        filter: blur(15px);
+     }
+     .button-hover:hover{
+
+       animation: hue 3s linear infinite;
+
+     }
+     @keyframes hue {
+       0%{
+         filter: hue-rotate(0deg);
+       }
+       100%{
+         filter: hue-rotate(360deg);
+       }
+       
+     }
+      .button-hover span{
+
+        position: relative;
+        z-index: 3;
+        
+        padding: 0.3em;
+        
+        font-size: 1.3em;
+        font-weight: bold;
+        color: #ffffff;
+        border-radius: 17px;
+
+      }
+      </style>
+    </head>
+    <body>
+      <div class="row" style="margin-right: -208px;
+      margin-left: 39px;
+      margin-top: 15px;
+      width: 993px;">
+          
+  
+              <!-- Company Card Example -->
+              <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-primary shadow h-100 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Partenaires</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{total_donateurs}}</div>
+                      </div>
+                      <div class="col-auto">
+                        <i class="fas fa-handshake fa-2x text-gray-300"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-md-6 mb-4">
+                  <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                          <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Donateurs</div>
+                          <div class="h5 mb-0 font-weight-bold text-gray-800">{{total_donateurs}}</div>
+                        </div>
+                        <div class="col-auto">
+                          <i class="fa fa-users fa-2x text-gray-300"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <div class="col-xl-3 col-md-6 mb-4">
+                  <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                          <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Commandes</div>
+                          <div class="h5 mb-0 font-weight-bold text-gray-800">{{total_commandes}}</div>
+                        </div>
+                        <div class="col-auto">
+                          <i class="fa fa-truck fa-2x text-gray-300"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+              <!-- Contact Card Example -->
+              <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-warning shadow h-100 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Contact</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">75972708</div>
+                      </div>
+                      <div class="col-auto">
+                        <i class="fas fa-comments fa-2x text-gray-300"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+          <br>
+            <div class="middle" style=" margin-left: 40px;">
+              <h4 >Pour les Ajouts</h4>
+              <hr style="width:300px;">
+              <a href="{% url 'creer_donateur' %}">
+              <button class="button-hover" >
+                <span><i class="fa fa-user fa-4x text-gray-300"><p style="margin-top: 8px;
+                  margin-bottom: 0rem;
+                  font-size: 12px;">Add Donor</p></i></span>
+              </button></a>
+
+              <a href="{% url 'create_hopitaux' %}">
+              <button class="button-hover">
+                <span><i class="fa fa-hospital fa-4x text-gray-300"><p style="margin-top: 8px;
+                  margin-bottom: 0rem;
+                  font-size: 12px;">Add Partner</p></i></span>
+              </button></a>
+
+
+              <a href="{% url 'creer_stock' %}">
+              <button class="button-hover">
+                <span><i class="fa fa-server fa-4x text-gray-300"><p style="margin-top: 8px;
+                  margin-bottom: 0rem;
+                  font-size: 12px;">Add Stock</p></i></span>
+              </button></a>
+
+              <a href="{% url 'create_commande' %}">
+              <button class="button-hover">
+                <span><i class="fa fa-truck fa-4x text-gray-300"><p style="margin-top: 8px;
+                  margin-bottom: 0rem;
+                  font-size: 12px;">Add Command</p></i></span>
+              </button></a>
+        
+            </div>
+  
+          
+      </div>
+    </body>
+    </html>
+
+
+ 
+    
+    {% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}Blood Bank | hopitaux {% endblock %}
+{% block content %}
+<body >
+    <div style="border-radius: 9px;background-color: white;width: 1068px;margin-left: 12px;margin-top: 76px;">
+        <center><div class="col-md-9">
+            <h2 style="margin-top: 40px;">Liste des Hopitaux:</h2>
+            <hr>
+            <div class="card card-body">
+                
+                <table class="table table-sm">
+                    <tr>
+                        <th>Nom</th>
+                        <th>Adresse</th>
+                        <th>Tel</th>
+                        <th>Email</th>
+                     
+                    </tr>
+                   
+                    {% for i in hopitaux %}
+                    
+                        <tr>
+                            <td>{{i.nom}}</td>
+                            <td>{{i.adress}}</td>
+                            <td>{{i.tel}}</td>
+                            <td>{{i.email}}</td>
+                        
+                       <td><a class="btn btn-sm btn-warning" href="#">Modifier</a></td>
+                        <td><a class="btn btn-sm btn-danger" href="#">Supprimer</a></td>
+         
+                        </tr>
+                    
+                        {% endfor %}
+            
+                </table>
+            </div>
+        </div>
+        <br>
+        </center>
+    </div>
+</body>
+
+{% endblock %}

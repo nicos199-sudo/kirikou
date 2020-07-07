@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+<body>
+     
+    <div class="col-lg-10 col-lg-offset-2" style="    margin-left: 336px;
+    font-size: large;
+    margin-top: 53px;
+    width: 425px;
+    border-style: groove;
+    border-radius: 8px;
+    height: 452px;">
+        
+        <form action="" method="post" style="margin-top: 40px;">
+            {% csrf_token %}
+            {{form|crispy}}
+           <center><input type="submit" value="ajouter" style=" width: 97px;height: 30px;background-color: limegreen;border-style: solid;border-radius: 9px;color: white;font: icon;"></center> 
+        </form>
+        </div>
+   
+
+ </div>
+</body>
+
+ 
+    
+
+
+{% endblock %}
